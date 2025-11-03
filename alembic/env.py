@@ -5,9 +5,9 @@ from sqlalchemy import pool
 
 from alembic import context
 
-from app.core.config import settings
-from app.models import Conversation, Message
-from app.models.base import BaseModel
+from src.core.config import settings
+from src.database.models import Conversation, Message
+from src.database.models.base import BaseModel
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -22,7 +22,7 @@ if config.config_file_name is not None:
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
-database_url = str(settings.AI_DATABASE_URI)
+database_url = str(settings.SQL_DATABASE_URI)
 target_metadata = BaseModel.metadata
 
 # other values from the config, defined by the needs of env.py,
@@ -32,7 +32,7 @@ target_metadata = BaseModel.metadata
 
 
 def get_url():
-    url = str(settings.AI_DATABASE_URI)
+    url = str(settings.SQL_DATABASE_URI)
 
     # change async database to sync for alembic migrations
     if url.startswith("postgresql+asyncpg://"):

@@ -1,6 +1,6 @@
 FROM python:3.11.7-alpine3.19 as base
 
-WORKDIR /home/user/het
+WORKDIR /home/user/bot
 
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
@@ -16,7 +16,7 @@ RUN pip install -r requirements/production.txt
 # Multistage for smaller final image
 FROM python:3.11.7-alpine3.19
 
-WORKDIR /home/user/het
+WORKDIR /home/user/bot
 
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1

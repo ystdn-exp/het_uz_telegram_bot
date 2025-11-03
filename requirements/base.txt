@@ -1,7 +1,6 @@
 # Core
 fastapi[standard]==0.115.0
 pydantic-settings==2.9.1
-pyjwt==2.10.1
 
 # SQLAlchemy and async
 sqlalchemy==2.0.41
@@ -17,5 +16,15 @@ sentry-sdk[fastapi]==2.15.0
 # Telegram Bot
 aiogram==3.22.0
 babel==2.17.0
-selenium==4.36.0
-selenium-requests==2.0.4
+
+# Caching
+redis==5.0.7
+
+# Background tasks
+apscheduler==3.10.4
+
+# Web parser
+playwright==1.48.0
+
+# commands
+typer[all]==0.12.5

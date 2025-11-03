@@ -2,9 +2,10 @@ version: "3.8"
 
 services:
   web:
-    build: .
+    build:
+      dockerfile: Dockerfile.development
     volumes:
-      - .:/home/user/het
+      - .:/home/user/bot
     env_file:
       - .env
     depends_on:
@@ -21,11 +22,19 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     environment:
-      POSTGRES_USER: het
-      POSTGRES_PASSWORD: het
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
       POSTGRES_DB: het
     ports:
       - "5445:5432"
+
+  ngrok:
+    build: ngrok:latest
+    command: http web:8000
+    ports:
+      - "4040:4040"
+    depends_on:
+      - web
 
 volumes:
   postgres_data:

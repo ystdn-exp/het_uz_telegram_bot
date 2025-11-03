@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ "$SQL_DB" = "jowi" ]
+if [ "$SQL_DB" = "het" ]
 then
     echo "Waiting for postgres..."
     echo $SQL_HOST

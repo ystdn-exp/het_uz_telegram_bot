@@ -3,7 +3,7 @@ from typing import Callable, Awaitable, Dict, Any
 from aiogram import BaseMiddleware, types
 
 from src.bot.utils.context_variables import set_locale
-from src.database.repositories.users import UserRepository
+from src.database.repositories.users import TelegramUserRepository
 
 
 class LocaleMiddleware(BaseMiddleware):
@@ -14,9 +14,10 @@ class LocaleMiddleware(BaseMiddleware):
         data: Dict[str, Any],
     ) -> Any:
         user_id = event.from_user.id if event.from_user else None
-        lang = UserRepository.get_preferred_language(user_id, "en")
+        lang = TelegramUserRepository.get_preferred_language(user_id, "en")
         set_locale(lang)
         return await handler(event, data)
+
 
 # NOTE: need to register the middleware
 # bot/bot.py
