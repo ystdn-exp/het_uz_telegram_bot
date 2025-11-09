@@ -1,3 +1,5 @@
+import os
+
 from typing import Annotated, Any
 from pathlib import Path
 
@@ -46,7 +48,8 @@ class Settings(BaseSettings):
     SECRET_KEY: str
     DEBUG: bool
 
-    RESTAURANT_SECRET_KEY: str
+    SECRET_KEY: str
+    TELEGRAM_SECRET_KEY: str
 
     BACKEND_CORS_ORIGINS: Annotated[list[AnyUrl] | str, BeforeValidator(parse_cors)] = []
 
@@ -57,32 +60,13 @@ class Settings(BaseSettings):
 
     SENTRY_DSN: HttpUrl | None = None
 
-    # JOWi AI database
-    SQL_AI_HOST: str
-    SQL_AI_PORT: int
-    SQL_AI_USER: str
-    SQL_AI_PASSWORD: str
-    SQL_AI_DB: str
+    SQL_HOST: str
+    SQL_PORT: int
+    SQL_USER: str
+    SQL_PASSWORD: str
+    SQL_DB: str
 
-    # restaurant database
-    SQL_WEB_HOST: str
-    SQL_WEB_PORT: int
-    SQL_WEB_USER: str
-    SQL_WEB_PASSWORD: str
-    SQL_WEB_DB: str
-
-    # super admin database
-    SQL_SUPER_ADMIN_HOST: str
-    SQL_SUPER_ADMIN_PORT: int
-    SQL_SUPER_ADMIN_USER: str
-    SQL_SUPER_ADMIN_PASSWORD: str
-    SQL_SUPER_ADMIN_DB: str
-
-    RESTAURANT_ACCESS_TOKEN_EXPIRE_DAYS: int = 1
-    SUPER_ADMIN_ACCESS_TOKEN_EXPIRE_DAYS: int = 1
-    ALGORITHM: str = "HS256"
-
-    # JOWi AI database
+    # database configuration with caching method
     @computed_field
     @property
     def AI_DATABASE_URI(self) -> PostgresDsn:
@@ -95,35 +79,15 @@ class Settings(BaseSettings):
             path=self.SQL_AI_DB,
         )
 
-    # restaurant database
-    @computed_field
-    @property
-    def WEB_DATABASE_URI(self) -> PostgresDsn:
-        return MultiHostUrl.build(
-            scheme="postgresql+asyncpg",
-            username=self.SQL_WEB_USER,
-            password=self.SQL_WEB_PASSWORD,
-            host=self.SQL_WEB_HOST,
-            port=self.SQL_WEB_PORT,
-            path=self.SQL_WEB_DB,
-        )
-
-    # super admin database
-    @computed_field
-    @property
-    def SUPER_ADMIN_DATABASE_URI(self) -> PostgresDsn:
-        return MultiHostUrl.build(
-            scheme="postgresql+asyncpg",
-            username=self.SQL_AI_USER,
-            password=self.SQL_AI_PASSWORD,
-            host=self.SQL_AI_HOST,
-            port=self.SQL_AI_PORT,
-            path=self.SQL_AI_DB,
-        )
-
     # redis configuration
     REDIS_HOST: str
     REDIS_PORT: int
+
+    # logging parameters
+    LOG_DIR: Path = os.path.join(BASE_DIR, "logs")
+    LOG_LEVEL: str = "INFO"
+    ROTATING_LOG_FILE_SIZE: int = 10 * 1024 * 1024
+    ROTATING_LOG_FILE_BACKUPS: int = 5
 
 
 def get_settings() -> Settings:

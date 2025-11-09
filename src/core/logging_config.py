@@ -46,7 +46,7 @@ def _init_console_logger(root_logger):
     rotating_file = RotatingFileHandler(
         filename=os.path.join(settings.LOG_DIR, "app.log"),
         maxBytes=settings.ROTATING_LOG_FILE_SIZE,
-        backupCount=settings.ROATING_LOG_FILE_BACKUPS,
+        backupCount=settings.ROTATING_LOG_FILE_BACKUPS,
         encoding="utf-8",
     )
     rotating_file.setFormatter(formatter)

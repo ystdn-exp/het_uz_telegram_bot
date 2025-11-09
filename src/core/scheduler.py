@@ -1,5 +1,6 @@
 import logging
 
+from apscheduler.jobstores.redis import RedisJobStore
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from apscheduler.triggers.cron import CronTrigger
 
@@ -9,7 +10,11 @@ from src.core.config import settings
 
 logger = logging.getLogger(__name__)
 
-scheduler = AsyncIOScheduler(timezone=settings.TIMEZONE)
+# initialize scheduler instance along with redis cache
+jobstores = {
+    "default": RedisJobStore(host=settings.REDIS_HOST, port=settings.REDIS_PORT, db=0)
+}
+scheduler = AsyncIOScheduler(timezone=settings.TIMEZONE, jobstores=jobstores)
 
 
 SCHEDULER_JOBS = {
