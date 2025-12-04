@@ -4,6 +4,7 @@ services:
   web:
     build:
       dockerfile: Dockerfile.production
+    command: gunicorn -k uvicorn.workers.UvicornWorker src.web.main:app --bind=0.0.0.0:8000 --workers=3
     volumes:
       - .:/home/user/bot
     ports:
@@ -27,6 +28,14 @@ services:
       POSTGRES_DB: ${POSTGRES_DB}
     ports:
       - "5445:5432"
+
+  webhook_setup:
+    build: .
+    command: python manage.py set_webhook $(NGROK_URL)
+    entrypoint: ["ngrok-entrypoint.sh"]
+    depends_on:
+      - ngrok
+      - web
 
 volumes:
   postgres_data:

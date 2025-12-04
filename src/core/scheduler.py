@@ -17,6 +17,7 @@ jobstores = {
 scheduler = AsyncIOScheduler(timezone=settings.TIMEZONE, jobstores=jobstores)
 
 
+# apscheduler jobs should be declared in dict
 SCHEDULER_JOBS = {
     "daily_task": {"trigger": CronTrigger(hour=10, minute=0), "id": "daily_task"},
 }
@@ -38,3 +39,10 @@ def init_scheduler():
         )
 
     scheduler.start()
+
+    return scheduler
+
+
+def shutdown_scheduler():
+    """Disable schuduler."""
+    scheduler.shutdown(wait=False)

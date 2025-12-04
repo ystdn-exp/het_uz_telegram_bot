@@ -10,3 +10,12 @@ dev-down:
 	docker-compose -t het-telegram-bot-dev down
 prod-down:
 	docker-compose -t het-telegram-bot-prod down
+
+# Restart the containers
+dev-restart:
+	dev-down
+	dev-up
+
+prod-restart:
+	prod-down
+	prod-up

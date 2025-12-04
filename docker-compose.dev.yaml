@@ -4,6 +4,7 @@ services:
   web:
     build:
       dockerfile: Dockerfile.development
+    command: gunicorn -k uvicorn.workers.UvicornWorker src.web.main:app --bind=0.0.0.0:8000 --workers=3
     volumes:
       - .:/home/user/bot
     env_file:
@@ -31,9 +32,17 @@ services:
   ngrok:
     build: ngrok:latest
     command: http web:8000
+    environment:
+      NGROK_AUTHTOKEN: ${NGROK_AUTHTOKEN}
     ports:
       - "4040:4040"
+
+  webhook_setup:
+    build: .
+    command: python manage.py set_webhook $(NGROK_URL)
+    entrypoint: ["ngrok-entrypoint.sh"]
     depends_on:
+      - ngrok
       - web
 
 volumes:

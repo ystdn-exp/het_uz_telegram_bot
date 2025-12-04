@@ -1,6 +1,8 @@
 #!/bin/sh
 
-if [ "$SQL_DB" = "het" ]
+set -e
+
+if [ "$SQL_DB" = "het_db" ]
 then
     echo "Waiting for postgres..."
     echo $SQL_HOST

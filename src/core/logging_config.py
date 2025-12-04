@@ -1,4 +1,5 @@
 import os
+import sentry_sdk
 import logging
 
 from logging.handlers import RotatingFileHandler
@@ -53,7 +54,7 @@ def _init_console_logger(root_logger):
     root_logger.addHandler(rotating_file)
 
 
-def setup_logging():
+def init_logging():
     """
     Initialize logging with log files.
     """
@@ -64,3 +65,10 @@ def setup_logging():
     _init_console_logger(root_logger)
 
     logging.info("Logging configured successfully.")
+
+
+def init_sentry():
+    """
+    Setup sentry monitoring.
+    """
+    sentry_sdk.init(dsn=settings.SENTRY_DSN, enable_tracing=True)
