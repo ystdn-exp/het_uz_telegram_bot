@@ -17,6 +17,8 @@ class HTTPClient:
         """
         self.timeout = timeout
         self.max_retries = max_retries
+        self.async_client = httpx.AsyncClient(timeout=self.timeout)
+
 
     async def _request(
         self, method: str, endpoint: str, headers: Optional[dict] = None, **kwargs
@@ -35,9 +37,10 @@ class HTTPClient:
         """
         if headers is None:
             headers = {}
+
         headers["Coato-Code"] = "26280"
 
-        async with httpx.AsyncClient(timeout=self.timeout) as client:
+        async with self.async_client as client:
             for attempt in range(self.max_retries):
                 try:
                     response = await client.request(
@@ -59,4 +62,3 @@ class HTTPClient:
                     # Retry on network errors
                     if attempt == self.max_retries - 1:
                         raise
-
