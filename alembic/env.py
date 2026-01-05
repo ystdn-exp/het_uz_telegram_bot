@@ -6,7 +6,7 @@ from sqlalchemy import pool
 from alembic import context
 
 from src.core.config import settings
-from src.database.models import Conversation, Message
+from src.database.models import User, TelegramUser
 from src.database.models.base import BaseModel
 
 # this is the Alembic Config object, which provides

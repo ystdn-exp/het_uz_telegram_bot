@@ -1,0 +1,567 @@
+# Uzbek translations for PROJECT.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-01-05 05:36+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: uz\n"
+"Language-Team: uz <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: src/bot/handlers/language.py:29
+msgid ""
+"🌐 <b>Select Your Language</b>\n"
+"\n"
+"Choose your preferred language:"
+msgstr ""
+"🌐 <b>Tilni tanlang</b>\n"
+"\n"
+"O'zingizga qulay tilni tanlang:"
+
+#: src/bot/handlers/language.py:76
+msgid ""
+"🌟 <b>Welcome to HET Bot!</b> 🏠✨\n"
+"\n"
+"⚡️ Here you can effortlessly manage your electricity accounts and track "
+"your consumption! 📉💡\n"
+"\n"
+"🚀 Let's get started! Use the menu below to navigate. 👇"
+msgstr ""
+"🌟 <b>HET Botga xush kelibsiz!</b> 🏠✨\n"
+"\n"
+"⚡️ Bu yerda siz elektr energiyasi hisoblaringizni oson boshqarishingiz va"
+" iste'molni kuzatib borishingiz mumkin! 📉💡\n"
+"\n"
+"🚀 Qani boshladik! Navigatsiya uchun quyidagi menyudan foydalaning. 👇"
+
+#: src/bot/handlers/register.py:42
+msgid ""
+"🚫 <b>Limit Reached</b>\n"
+"\n"
+"You have reached the maximum limit of 3 linked accounts.\n"
+"To add a new one, please remove an existing account first."
+msgstr ""
+"🚫 <b>Limitga yetildi</b>\n"
+"\n"
+"Siz 3 ta hisobni ulash limitiga yetdingiz.\n"
+"Yangi hisob qo'shish uchun, iltimos, mavjud hisoblardan birini o'chiring."
+
+#: src/bot/handlers/register.py:53
+msgid ""
+"👤 <b>Username Required</b>\n"
+"\n"
+"Please enter your HET account username:"
+msgstr ""
+"👤 <b>Login talab qilinadi</b>\n"
+"\n"
+"Iltimos, HET hisobingiz loginini kiriting:"
+
+#: src/bot/handlers/register.py:73
+msgid ""
+"⚠️ <b>Invalid Username</b>\n"
+"\n"
+"Username cannot be empty. Please try again:"
+msgstr ""
+"⚠️ <b>Noto'g'ri login</b>\n"
+"\n"
+"Login bo'sh bo'lishi mumkin emas. Iltimos, qaytadan urunib ko'ring:"
+
+#: src/bot/handlers/register.py:85
+msgid ""
+"🔐 <b>Password Required</b>\n"
+"\n"
+"Great! Now please enter your HET account password:"
+msgstr ""
+"🔐 <b>Parol talab qilinadi</b>\n"
+"\n"
+"Ajoyib! Endi HET hisobingiz parolini kiriting:"
+
+#: src/bot/handlers/register.py:105
+msgid ""
+"⚠️ <b>Invalid Password</b>\n"
+"\n"
+"Password cannot be empty. Please try again:"
+msgstr ""
+"⚠️ <b>Noto'g'ri parol</b>\n"
+"\n"
+"Parol bo'sh bo'lishi mumkin emas. Iltimos, qaytadan urunib ko'ring:"
+
+#: src/bot/handlers/register.py:122
+msgid ""
+"🔄 <b>Verifying Credentials...</b>\n"
+"Please wait while we check your details."
+msgstr ""
+"🔄 <b>Ma'lumotlar tekshirilmoqda...</b>\n"
+"Iltimos, ma'lumotlaringiz tekshirilguncha kuting."
+
+#: src/bot/handlers/register.py:144
+msgid ""
+"🎉 <b>Success!</b>\n"
+"\n"
+"Account has been successfully linked!\n"
+"You can now track your electricity consumption statistics effortlessly 📉"
+msgstr ""
+"🎉 <b>Muvaffaqiyatli!</b>\n"
+"\n"
+"Hisob muvaffaqiyatli ulandi!\n"
+"Endi siz elektr energiyasi iste'moli statistikasini osongina kuzatib "
+"borishingiz mumkin 📉"
+
+#: src/bot/handlers/register.py:162
+#, python-brace-format
+msgid ""
+"❌ <b>Authentication Failed</b>\n"
+"\n"
+"{error}\n"
+"\n"
+"Please check your credentials and try again."
+msgstr ""
+"❌ <b>Avtentifikatsiya xatosi</b>\n"
+"\n"
+"{error}\n"
+"\n"
+"Iltimos, ma'lumotlaringizni tekshiring va qaytadan urunib ko'ring."
+
+#: src/bot/handlers/register.py:184
+msgid "❌ An unexpected error occurred. Please try again later."
+msgstr "❌ Kutilmagan xato yuz berdi. Iltimos, keyinroq qaytadan urunib ko'ring."
+
+#: src/bot/handlers/start.py:30
+msgid ""
+"Please select your language / Пожалуйста, выберите язык / Iltimos, tilni "
+"tanlang:"
+msgstr ""
+"Iltimos, tilni tanlang / Пожалуйста, выберите язык / Please select your "
+"language:"
+
+#: src/bot/handlers/users.py:60
+msgid ""
+"📭 <b>No Accounts Linked</b>\n"
+"\n"
+"You haven't linked any HET accounts yet.\n"
+"Tap <b>'➕ Add Account'</b> below to get started and track your usage!"
+msgstr ""
+"📭 <b>Hisoblar ulanmagan</b>\n"
+"\n"
+"Siz hali biron bir HET hisobini ulamadingiz.\n"
+"Iste'molni kuzatishni boshlash uchun quyidagi <b>'➕ Hisob qo'shish'</b> "
+"tugmasini bosing!"
+
+#: src/bot/handlers/users.py:76 src/bot/handlers/users.py:778
+#: src/bot/handlers/users.py:785
+msgid ""
+"📋 <b>Your HET Accounts</b>\n"
+"\n"
+"Select an account below to view detailed statistics and consumption data:"
+msgstr ""
+"📋 <b>Sizning HET hisoblaringiz</b>\n"
+"\n"
+"Statistika va iste'mol ma'lumotlarini ko'rish uchun quyidagi hisoblardan "
+"birini tanlang:"
+
+#: src/bot/handlers/users.py:94
+msgid ""
+"🤖 <b>HET Bot Assistance</b>\n"
+"\n"
+"Here's how I can help you manage your electricity data:\n"
+"\n"
+"<b>📂 Account Management</b>\n"
+"• <b>➕ Add Account:</b> Link up to 3 HET electricity accounts.\n"
+"• <b>👁 My Accounts:</b> View linked accounts, check balances & "
+"statistics.\n"
+"\n"
+"<b>📊 Statistics & Tracking</b>\n"
+"View detailed consumption graphs for:\n"
+"• 🗓 Monthly\n"
+"• 📅 Yearly\n"
+"\n"
+"• 📑 Meter Readings & Payments History\n"
+"\n"
+"<b>🔔 Notifications</b>\n"
+"I'll send you a daily summary of your electricity usage at 10:00 AM.\n"
+"\n"
+"<b>🆘 Support</b>\n"
+"Need more help? Contact your system administrator."
+msgstr ""
+"🤖 <b>HET Bot yordami</b>\n"
+"\n"
+"Men sizga elektr energiyasi ma'lumotlarini boshqarishda quyidagicha "
+"yordam bera olaman:\n"
+"\n"
+"<b>📂 Hisoblarni boshqarish</b>\n"
+"• <b>➕ Hisob qo'shish:</b> 3 tagacha HET elektr hisoblarini ulang.\n"
+"• <b>👁 Mening hisoblarim:</b> Ulangan hisoblar, balans va statistikani "
+"ko'ring.\n"
+"\n"
+"<b>📊 Statistika va kuzatish</b>\n"
+"Iste'mol grafiklarini ko'rish:\n"
+"• 🗓 Oylik\n"
+"• 📅 Yillik\n"
+"\n"
+"• 📑 Hisoblagich ko'rsatkichlari va to'lovlar tarixi\n"
+"\n"
+"<b>🔔 Bildirishnomalar</b>\n"
+"Men sizga har kuni soat 10:00 da iste'mol bo'yicha hisobot yuboraman.\n"
+"\n"
+"<b>🆘 Qo'llab-quvvatlash</b>\n"
+"Yordam kerakmi? Tizim administratoriga murojaat qiling."
+
+#: src/bot/handlers/users.py:128 src/bot/handlers/users.py:516
+#: src/bot/handlers/users.py:544 src/bot/handlers/users.py:612
+#: src/bot/handlers/users.py:668 src/bot/handlers/users.py:699
+msgid "❌ Invalid account"
+msgstr "❌ Noto'g'ri hisob"
+
+#: src/bot/handlers/users.py:140
+msgid "❌ Account not found"
+msgstr "❌ Hisob topilmadi"
+
+#: src/bot/handlers/users.py:171
+#, python-brace-format
+msgid ""
+"\n"
+"💰 <b>Balance:</b> {balance} UZS"
+msgstr ""
+"\n"
+"💰 <b>Balans:</b> {balance} so'm"
+
+#: src/bot/handlers/users.py:177
+#, python-brace-format
+msgid ""
+"🏠 <b>Account: {username}</b>{balance}\n"
+"\n"
+"Please select a time period below to analyze your electricity consumption:"
+msgstr ""
+"🏠 <b>Hisob: {username}</b>{balance}\n"
+"\n"
+"Iste'molni tahlil qilish uchun quyidagi davrlardan birini tanlang:"
+
+#: src/bot/handlers/users.py:312
+msgid "Today Consumption"
+msgstr "Bugungi iste'mol"
+
+#: src/bot/handlers/users.py:314
+msgid "Weekly Consumption"
+msgstr "Haftalik iste'mol"
+
+#: src/bot/handlers/users.py:316
+msgid "Monthly Consumption"
+msgstr "Oylik iste'mol"
+
+#: src/bot/handlers/users.py:355 src/bot/handlers/users.py:443
+msgid "❌ Invalid request"
+msgstr "❌ Noto'g'ri so'rov"
+
+#: src/bot/handlers/users.py:361
+msgid ""
+"📊 <b>Yearly Consumption</b>\n"
+"\n"
+"Please select a year to view:"
+msgstr ""
+"📊 <b>Yillik iste'mol</b>\n"
+"\n"
+"Ko'rish uchun yilni tanlang:"
+
+#: src/bot/handlers/users.py:368
+msgid "⏳ Fetching your data... Please wait."
+msgstr "⏳ Ma'lumotlar yuklanmoqda... Iltimos kuting."
+
+#: src/bot/handlers/users.py:385 src/bot/handlers/users.py:460
+msgid ""
+"⚠️ <b>Account Not Found</b>\n"
+"\n"
+"Could not locate the specified account."
+msgstr ""
+"⚠️ <b>Hisob topilmadi</b>\n"
+"\n"
+"Ko'rsatilgan hisobni topib bo'lmadi."
+
+#: src/bot/handlers/users.py:400
+msgid "Period"
+msgstr "Davr"
+
+#: src/bot/handlers/users.py:401 src/bot/handlers/users.py:478
+msgid "Consumption (kWh)"
+msgstr "Iste'mol (kVt*soat)"
+
+#: src/bot/handlers/users.py:406 src/bot/handlers/users.py:483
+#, python-brace-format
+msgid ""
+"📊 <b>{title}</b>\n"
+"\n"
+"👤 <b>Account:</b> {username}"
+msgstr ""
+"📊 <b>{title}</b>\n"
+"\n"
+"👤 <b>Hisob:</b> {username}"
+
+#: src/bot/handlers/users.py:421 src/bot/handlers/users.py:498
+#, python-brace-format
+msgid "❌ An error occurred while fetching data: {error}"
+msgstr "❌ Ma'lumotlarni yuklashda xato yuz berdi: {error}"
+
+#: src/bot/handlers/users.py:447
+#, python-brace-format
+msgid "⏳ Fetching {year} data..."
+msgstr "⏳ {year}-yil ma'lumotlari yuklanmoqda..."
+
+#: src/bot/handlers/users.py:477
+msgid "Month"
+msgstr "Oy"
+
+#: src/bot/handlers/users.py:522 src/bot/handlers/users.py:526
+msgid "📅 Select a period:"
+msgstr "📅 Davrni tanlang:"
+
+#: src/bot/handlers/users.py:547
+msgid "⏳ Fetching payments..."
+msgstr "⏳ To'lovlar yuklanmoqda..."
+
+#: src/bot/handlers/users.py:563
+msgid ""
+"⚠️ <b>Account Not Found</b>\n"
+"\n"
+"Please try again."
+msgstr ""
+"⚠️ <b>Hisob topilmadi</b>\n"
+"\n"
+"Iltimos, qaytadan urunib ko'ring."
+
+#: src/bot/handlers/users.py:574
+msgid ""
+"⚠️ <b>Connection Error</b>\n"
+"\n"
+"Failed to retrieve payment history."
+msgstr ""
+"⚠️ <b>Aloqa xatosi</b>\n"
+"\n"
+"To'lovlar tarixini yuklab bo'lmadi."
+
+#: src/bot/handlers/users.py:590
+#, python-brace-format
+msgid "❌ Error fetching payments: {error}"
+msgstr "❌ To'lovlarni yuklashda xato: {error}"
+
+#: src/bot/handlers/users.py:620
+msgid ""
+"⚠️ <b>Connection Error</b>\n"
+"\n"
+"Failed to retrieve reading history."
+msgstr ""
+"⚠️ <b>Aloqa xatosi</b>\n"
+"\n"
+"Ko'rsatkichlar tarixini yuklab bo'lmadi."
+
+#: src/bot/handlers/users.py:624
+msgid ""
+"📟 <b>Meter Readings</b>\n"
+"\n"
+msgstr ""
+"📟 <b>Hisoblagich ko'rsatkichlari</b>\n"
+"\n"
+
+#: src/bot/handlers/users.py:628
+msgid "<i>No reading records found.</i>"
+msgstr "<i>Ko'rsatkichlar topilmadi.</i>"
+
+#: src/bot/handlers/users.py:652
+#, python-brace-format
+msgid "❌ Error fetching readings: {error}"
+msgstr "❌ Ko'rsatkichlarni yuklashda xato: {error}"
+
+#: src/bot/handlers/users.py:672
+msgid ""
+"🗑 <b>Delete Account?</b>\n"
+"\n"
+"Are you sure you want to remove this account?\n"
+"<i>This action will unlink it from the bot, but you can always add it "
+"back later.</i>"
+msgstr ""
+"🗑 <b>Hisobni o'chirish?</b>\n"
+"\n"
+"Ushbu hisobni o'chirishga ishonchingiz komilmi?\n"
+"<i>Bu amal hisobni botdan uzib qo'yadi, lekin uni keyinchalik yana "
+"qo'shishingiz mumkin.</i>"
+
+#: src/bot/handlers/users.py:707
+msgid ""
+"✅ <b>Account Removed</b>\n"
+"\n"
+"The account has been successfully unlinked."
+msgstr ""
+"✅ <b>Hisob o'chirildi</b>\n"
+"\n"
+"Hisob muvaffaqiyatli o'chirildi."
+
+#: src/bot/handlers/users.py:717
+msgid "Use the menu to manage your remaining accounts:"
+msgstr "Qolgan hisoblaringizni boshqarish uchun menyudan foydalaning:"
+
+#: src/bot/handlers/users.py:723
+#, python-brace-format
+msgid "❌ Error deleting account: {error}"
+msgstr "❌ Hisobni o'chirishda xato yuz berdi: {error}"
+
+#: src/bot/handlers/users.py:737
+msgid "🚫 <b>Action Cancelled</b>"
+msgstr "🚫 <b>Amal bekor qilindi</b>"
+
+#: src/bot/handlers/users.py:746
+msgid "What would you like to do next?"
+msgstr "Keyingi amalingiz qanday?"
+
+#: src/bot/handlers/users.py:765
+msgid "You don't have any accounts."
+msgstr "Sizda ulangan hisoblar yo'q."
+
+#: src/bot/handlers/users.py:794
+msgid ""
+"💳 <b>Payment History</b>\n"
+"\n"
+msgstr ""
+"💳 <b>To'lovlar tarixi</b>\n"
+"\n"
+
+#: src/bot/handlers/users.py:798
+msgid "<i>No payment records found for this account.</i>"
+msgstr "<i>Ushbu hisob uchun to'lov ma'lumotlari topilmadi.</i>"
+
+#: src/bot/handlers/users.py:805
+msgid "Electricity"
+msgstr "Elektr energiyasi"
+
+#: src/bot/keyboards/constants.py:8
+msgid "➕ Add Account"
+msgstr "➕ Hisob qo'shish"
+
+#: src/bot/keyboards/constants.py:9
+msgid "👁 My Accounts"
+msgstr "👁 Mening hisoblarim"
+
+#: src/bot/keyboards/constants.py:10
+msgid "ℹ️ Help"
+msgstr "ℹ️ Yordam"
+
+#: src/bot/keyboards/constants.py:11
+msgid "🌐 Change Language"
+msgstr "🌐 Tilni o'zgartirish"
+
+#: src/bot/keyboards/constants.py:19
+msgid "📅 Today"
+msgstr "📅 Bugun"
+
+#: src/bot/keyboards/constants.py:20
+msgid "📈 Weekly"
+msgstr "📈 Haftalik"
+
+#: src/bot/keyboards/constants.py:21
+msgid "📆 Monthly"
+msgstr "📆 Oylik"
+
+#: src/bot/keyboards/constants.py:22
+msgid "📊 Yearly"
+msgstr "📊 Yillik"
+
+#: src/bot/keyboards/constants.py:25
+msgid "📊 Consumption"
+msgstr "📊 Iste'mol"
+
+#: src/bot/keyboards/constants.py:26
+msgid "💳 Payments"
+msgstr "💳 To'lovlar"
+
+#: src/bot/keyboards/constants.py:27
+msgid "📟 Meter Readings"
+msgstr "📟 Ko'rsatkichlar"
+
+#: src/bot/keyboards/constants.py:28
+msgid "🔙 Back"
+msgstr "🔙 Orqaga"
+
+#: src/bot/keyboards/constants.py:29
+msgid "🗑 Delete"
+msgstr "🗑 O'chirish"
+
+#: src/bot/keyboards/constants.py:30
+msgid "❌ Cancel"
+msgstr "❌ Bekor qilish"
+
+#: src/bot/keyboards/constants.py:31
+msgid "✅ Confirm"
+msgstr "✅ Tasdiqlash"
+
+#: src/services/users.py:50 src/services/users.py:58
+msgid "Invalid username or password"
+msgstr "Login yoki parol noto'g'ri"
+
+#: src/services/users.py:64
+msgid "Invalid input data"
+msgstr "Noto'g'ri kiritilgan ma'lumotlar"
+
+#: src/services/users.py:65
+msgid "HET API error. Please try again later."
+msgstr "HET API xatosi. Iltimos keyinroq qaytadan urunib ko'ring."
+
+#: src/services/users.py:69
+msgid "HET service is temporarily unavailable."
+msgstr "HET xizmati vaqtincha ishlamayapti."
+
+#: src/services/users.py:97
+msgid "Username is required"
+msgstr "Login talab qilinadi"
+
+#: src/services/users.py:99
+msgid "Password is required"
+msgstr "Parol talab qilinadi"
+
+#: src/services/users.py:110
+msgid "Password is incorrect"
+msgstr "Parol noto'g'ri"
+
+#: src/services/users.py:244 src/services/users.py:288
+#: src/services/users.py:332
+msgid "Chat ID is required"
+msgstr "Chat ID talab qilinadi"
+
+#: src/services/users.py:292
+msgid "Telegram user not found"
+msgstr "Telegram foydalanuvchisi topilmadi"
+
+#: src/services/users.py:307
+msgid "User already linked to this telegram user"
+msgstr "Ushbu hisob allaqachon ulangan"
+
+#: src/services/users.py:334
+msgid "User ID is required"
+msgstr "Foydalanuvchi IDsi talab qilinadi"
+
+#: src/tasks/jobs.py:44
+msgid "📊 <b>Daily Usage Report</b>"
+msgstr "📊 <b>Kunlik iste'mol hisoboti</b>"
+
+#: src/tasks/jobs.py:186
+#, python-brace-format
+msgid ""
+"⚠️ <b>Low Balance Alert!</b>\n"
+"\n"
+"👤 <b>Account:</b> {username}\n"
+"💰 <b>Current Balance:</b> {balance} UZS\n"
+"\n"
+"Please top up your account to avoid service interruption! ⚡️"
+msgstr ""
+"⚠️ <b>Diqqat: Balans past!</b>\n"
+"\n"
+"👤 <b>Hisob:</b> {username}\n"
+"💰 <b>Joriy balans:</b> {balance} so'm\n"
+"\n"
+"Iltimos, uzilishlarning oldini olish uchun hisobingizni to'ldiring! ⚡️"
+

@@ -5,6 +5,12 @@ from aiogram.fsm.storage.redis import RedisStorage
 from redis.asyncio import Redis
 
 from src.core.config import settings
+from src.bot.middlewares.session import DbSessionMiddleware
+from src.bot.middlewares.localization import LocaleMiddleware
+from src.bot.middlewares.logging import LoggingMiddleware
+from src.bot.middlewares.auth import AuthMiddleware
+from src.database.connection import session_pool
+from src.bot.handlers import start, register, users, language
 
 
 # Initialize Redis connection
@@ -29,7 +35,18 @@ bot = Bot(
 # Initialize dispatcher with storage
 dp = Dispatcher(storage=storage)
 
-# router for all handlers
+# register middlewares
+dp.update.outer_middleware(LoggingMiddleware())
+dp.update.outer_middleware(DbSessionMiddleware(session_pool=session_pool))
+dp.update.outer_middleware(AuthMiddleware())
+dp.update.outer_middleware(LocaleMiddleware())
+
 router = Router()
+
+# Register all handlers
+router.include_router(start.router)
+router.include_router(language.router)
+router.include_router(register.router)
+router.include_router(users.router)
 
 dp.include_router(router)

@@ -13,8 +13,12 @@ NGROK_URL=$(curl -s http://ngrok:4040/api/tunnels | jq -r '.tunnels[0].public_ur
 
 echo "Using NGROK_URL=$NGROK_URL"
 
-# Export it so other commands in this entrypoint can see it
-export NGROK_URL
+# Set the webhook directly using curl
+echo "Setting webhook..."
+WEBHOOK_URL="$NGROK_URL/bot/webhook"
 
-# Execute the command passed to this entrypoint
-exec "$@"
+curl -F "url=$WEBHOOK_URL" \
+     -F "secret_token=$WEBHOOK_SECRET_KEY" \
+     "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/setWebhook"
+
+echo "\nWebhook set successfully!"

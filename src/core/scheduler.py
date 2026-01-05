@@ -20,6 +20,11 @@ scheduler = AsyncIOScheduler(timezone=settings.TIMEZONE, jobstores=jobstores)
 # apscheduler jobs should be declared in dict
 SCHEDULER_JOBS = {
     "daily_task": {"trigger": CronTrigger(hour=10, minute=0), "id": "daily_task"},
+    "check_low_balances_task": {
+        "trigger": "interval",
+        "minutes": 50,
+        "id": "check_low_balances_task",
+    },
 }
 
 

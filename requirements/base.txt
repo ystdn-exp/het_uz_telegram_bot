@@ -1,8 +1,14 @@
 # Core
 fastapi[standard]==0.115.0
 pydantic-settings==2.9.1
+passlib[bcrypt]==1.7.4
+cryptography==43.0.1
+seaborn==0.13.2
+pandas==2.2.3
+requests==2.32.3
 
 # SQLAlchemy and async
+psycopg2-binary==2.9.9
 sqlalchemy==2.0.41
 sqlalchemy[asyncio]==2.0.41
 asyncpg==0.29.0
@@ -22,9 +28,6 @@ redis==5.0.7
 
 # Background tasks
 apscheduler==3.10.4
-
-# Web parser
-playwright==1.48.0
 
 # commands
 typer[all]==0.12.5

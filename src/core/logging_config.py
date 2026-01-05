@@ -34,7 +34,7 @@ def _init_console_logger(root_logger):
     Helper function to initialize console logger with rotation.
     """
     formatter = logging.Formatter(
-        fmt="[%(asctime)s] [%(levelName)s] %(name)s: %(message)s",
+        fmt="[%(asctime)s] [%(levelname)s] %(name)s: %(message)s",
         datefmt="%Y-%m-%d %H:%M:%S",
     )
 

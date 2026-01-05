@@ -4,7 +4,7 @@ services:
   web:
     build:
       dockerfile: Dockerfile.production
-    command: gunicorn -k uvicorn.workers.UvicornWorker src.web.main:app --bind=0.0.0.0:8000 --workers=3
+    command: gunicorn -k uvicorn.workers.UvicornWorker src.main:app --bind=0.0.0.0:8000 --workers=3
     volumes:
       - .:/home/user/bot
     ports:
@@ -36,6 +36,18 @@ services:
     depends_on:
       - ngrok
       - web
+
+  scheduler:
+    build:
+      dockerfile: Dockerfile.scheduler
+    command: python -m src.scheduler
+    env_file:
+      - .env
+    depends_on:
+      - db
+      - redis
+    networks:
+      - app_network
 
 volumes:
   postgres_data:

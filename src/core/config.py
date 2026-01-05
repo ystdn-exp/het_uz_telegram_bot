@@ -1,7 +1,7 @@
 import os
 import ipaddress
 
-from typing import Annotated, Any, Union, List
+from typing import Annotated, Any, Union, List, Optional
 from pathlib import Path
 
 from pydantic import (
@@ -43,9 +43,9 @@ class Settings(BaseSettings):
         extra="ignore",
     )
 
-    BASE_DIR: Path = Path(__name__).resolve().parent.parent.parent
-    BASE_URL: str = None
-    NGROK_URL: str = None  # only for development
+    BASE_DIR: Path = Path(__file__).resolve().parent.parent.parent
+    BASE_URL: Optional[str] = None
+    # NGROK_URL: Optional[str] = None  # only for development
     ENVIRONMENT: str = None  # development | production
 
     PROJECT_NAME: str = "HET"
@@ -94,21 +94,21 @@ class Settings(BaseSettings):
     ]  # telegram's default ip address
 
     # dynamically get webhook url regarding to the environment
-    @property
-    def WEBHOOK_URL(self) -> str:
-        base_host = ""
+    # @property
+    # def WEBHOOK_URL(self) -> str:
+    #     base_host = ""
 
-        if self.ENVIRONMENT == "development":
-            base_host = self.NGROK_URL
-        elif self.ENVIRONMENT == "production":
-            base_host = self.BASE_URL
+    #     if self.ENVIRONMENT == "development":
+    #         base_host = self.NGROK_URL
+    #     elif self.ENVIRONMENT == "production":
+    #         base_host = self.BASE_URL
 
-        return f"{base_host}/bot/webhook"
+    #     return f"{base_host}/bot/webhook"
 
     # database configuration with caching method
     @computed_field
     @property
-    def AI_DATABASE_URI(self) -> PostgresDsn:
+    def SQL_DATABASE_URI(self) -> PostgresDsn:
         return MultiHostUrl.build(
             scheme="postgresql+asyncpg",
             username=self.SQL_USER,
@@ -118,12 +118,13 @@ class Settings(BaseSettings):
             path=self.SQL_DB,
         )
 
-    # telegram ip addresses for webhook method
     @computed_field
     @property
-    def TELEGRAM_IP_RANGES(self) -> List[ipaddress.IPv4Address | ipaddress.IPv6Address]:
+    def TELEGRAM_IP_RANGES(
+        self,
+    ) -> List[Union[ipaddress.IPv4Network, ipaddress.IPv6Network]]:
         return [
-            ipaddress.ip_address(ip_whitelist)
+            ipaddress.ip_network(ip_whitelist)
             for ip_whitelist in self.TELEGRAM_WHITELIST_IPS
         ]
 

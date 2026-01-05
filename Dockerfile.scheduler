@@ -5,7 +5,7 @@ ENV PYTHONDONTWRITEBYTECODE=1
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    # Standard build tools (only if some packages still need compilation)
+    # Standard build tools
     gcc \
     libc6-dev \
     # PostgreSQL headers for asyncpg/psycopg2
@@ -15,22 +15,21 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libssl-dev \
     netcat-openbsd \
     # Utility tools
-    cron \
     curl \
     && pip install --upgrade pip setuptools wheel \
-    # Clean up to keep the image small
+    # Clean up
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /home/user/bot
 
-# Best practice: Copy only requirements first to leverage Docker cache
+# Copy only requirements first to leverage Docker cache
 COPY requirements/ ./requirements/
 RUN pip install --no-cache-dir -r requirements/development.txt
 
 COPY . .
 
 # Ensure the entrypoint is executable
-RUN chmod +x docker-entrypoint.sh
+RUN chmod +x scheduler-entrypoint.sh
 
-ENTRYPOINT ["./docker-entrypoint.sh"]
+ENTRYPOINT ["./scheduler-entrypoint.sh"]
