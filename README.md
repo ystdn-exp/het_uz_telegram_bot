@@ -21,7 +21,7 @@ Setting up HET is as easy as 1-2-3! Follow these steps to get started.
 Clone this project to your computer:
 ```bash
 git clone https://github.com/ystdn-exp/het_uz_telegram_bot.git
-cd level_1
+cd het_uz_telegram_bot
 ```
 
 ### Step 2: Setup your Settings (.env)
