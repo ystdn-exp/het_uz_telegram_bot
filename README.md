@@ -44,18 +44,45 @@ To allow Telegram to talk to your bot while you are developing it on your comput
 4.  **Paste it**: In your `.env` file, paste it next to `NGROK_AUTHTOKEN=`.
 
 ### Step 4: Run the Bot!
-Simply run this command (ensure you have [Docker](https://www.docker.com/products/docker-desktop/) installed):
-```bash
-make dev-up
-```
+Choose your preferred mode:
+
+#### A. Polling Mode (Easiest for Local Development)
+No ngrok required! Use this to test the bot quickly.
+-   **Linux/Mac**: `make polling-up`
+-   **Windows**: `docker-compose -f docker-compose.polling.yaml up -d`
+
+#### B. Webhook Mode (Advanced)
+Requires ngrok properly configured in `.env`.
+-   **Linux/Mac**: `make dev-up`
+-   **Windows**: `docker-compose -f docker-compose.dev.yaml up -d`
+
 Wait a few seconds... and your bot is alive! 🎉
 
 ---
 
+## 💻 Commands Reference
+
+If you are on **Windows** (or don't have `make` installed), use these direct `docker-compose` commands:
+
+| Action | Linux/Mac (Make) | Windows (Direct Command) |
+| :--- | :--- | :--- |
+| **Start (Polling)** | `make polling-up` | `docker-compose -f docker-compose.polling.yaml up -d` |
+| **Stop (Polling)** | `make polling-down` | `docker-compose -f docker-compose.polling.yaml down` |
+| **Restart (Polling)** | `make polling-restart` | `docker-compose -f docker-compose.polling.yaml down && docker-compose -f docker-compose.polling.yaml up -d` |
+| **Start (Dev/Webhook)** | `make dev-up` | `docker-compose -f docker-compose.dev.yaml up -d` |
+| **Stop (Dev/Webhook)** | `make dev-down` | `docker-compose -f docker-compose.dev.yaml down` |
+| **Restart (Dev/Webhook)** | `make dev-restart` | `docker-compose -f docker-compose.dev.yaml down && docker-compose -f docker-compose.dev.yaml up -d` |
+
+> [!TIP]
+> **Windows Users**: If you see "file not found" errors when running containers, ensure your files have Linux line endings (LF). You can fix this by running:
+> `git add --renormalize .`
+
+---
+
 ## 🛠 Troubleshooting
-- **Bot not responding?** Check your `TELEGRAM_BOT_TOKEN` in the `.env` file.
-- **Ngrok error?** Make sure your `NGROK_AUTHTOKEN` is correct.
-- **Still stuck?** Try restarting everything with `make dev-restart`.
+-   **Bot not responding?** Check your `TELEGRAM_BOT_TOKEN` in the `.env` file.
+-   **Ngrok error?** Make sure your `NGROK_AUTHTOKEN` is correct.
+-   **Still stuck?** Try restarting everything. On Windows: `docker-compose -f docker-compose.polling.yaml down && docker-compose -f docker-compose.polling.yaml up -d`
 
 ---
 
