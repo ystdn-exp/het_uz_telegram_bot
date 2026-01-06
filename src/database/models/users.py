@@ -1,7 +1,7 @@
 from datetime import datetime
 from uuid import UUID
 
-from sqlalchemy import String, ForeignKey, func, Text
+from sqlalchemy import ForeignKey, String, Text, func
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from src.database.models.base import BaseModel
@@ -42,9 +42,7 @@ class UserInTelegramUser(BaseModel):
     __tablename__ = "user_in_telegram_user"
 
     user_id: Mapped[UUID] = mapped_column(ForeignKey("users.id"))
-    telegram_user_id: Mapped[UUID] = mapped_column(
-        ForeignKey("telegram_users.id")
-    )
+    telegram_user_id: Mapped[UUID] = mapped_column(ForeignKey("telegram_users.id"))
 
     access_token: Mapped[str] = mapped_column(Text, nullable=True)
     refresh_token: Mapped[str] = mapped_column(Text, nullable=True)

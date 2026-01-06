@@ -1,8 +1,8 @@
-import os
-import sentry_sdk
 import logging
-
+import os
 from logging.handlers import RotatingFileHandler
+
+import sentry_sdk
 
 from src.core.config import settings
 

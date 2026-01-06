@@ -104,15 +104,20 @@ msgstr ""
 "Iltimos, ma'lumotlaringiz tekshirilguncha kuting."
 
 #: src/bot/handlers/register.py:144
+#, python-brace-format
 msgid ""
 "🎉 <b>Success!</b>\n"
 "\n"
 "Account has been successfully linked!\n"
+"👤 <b>Username:</b> {username}\n"
+"\n"
 "You can now track your electricity consumption statistics effortlessly 📉"
 msgstr ""
 "🎉 <b>Muvaffaqiyatli!</b>\n"
 "\n"
 "Hisob muvaffaqiyatli ulandi!\n"
+"👤 <b>Login:</b> {username}\n"
+"\n"
 "Endi siz elektr energiyasi iste'moli statistikasini osongina kuzatib "
 "borishingiz mumkin 📉"
 
@@ -564,4 +569,3 @@ msgstr ""
 "💰 <b>Joriy balans:</b> {balance} so'm\n"
 "\n"
 "Iltimos, uzilishlarning oldini olish uchun hisobingizni to'ldiring! ⚡️"
-

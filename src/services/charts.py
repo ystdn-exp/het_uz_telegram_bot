@@ -2,13 +2,13 @@
 Chart generation service using seaborn.
 """
 
-import matplotlib.pyplot as plt
-import seaborn as sns
 import asyncio
 import io
-import pandas as pd
+from typing import Any, Dict
 
-from typing import Dict, Any
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
 
 # Set premium dark theme
 plt.style.use("dark_background")
@@ -160,7 +160,9 @@ class ChartService:
 
         # Save to buffer
         buf = io.BytesIO()
-        plt.savefig(buf, format="png", dpi=120, bbox_inches="tight", facecolor="#121212")
+        plt.savefig(
+            buf, format="png", dpi=120, bbox_inches="tight", facecolor="#121212"
+        )
         buf.seek(0)
         plt.close(fig)
 

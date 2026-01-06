@@ -1,13 +1,12 @@
 import logging
 
-from fastapi import FastAPI, Request, Response, status, Depends
-from fastapi.middleware.gzip import GZipMiddleware
 from aiogram import types
+from fastapi import Depends, FastAPI, Request, Response, status
+from fastapi.middleware.gzip import GZipMiddleware
 
-from src.core.logging_config import init_logging, init_sentry
 from src.bot.bot import bot, dp
-from src.web.dependencies import verify_telegram_secret, verify_telegram_ip_address
-
+from src.core.logging_config import init_logging, init_sentry
+from src.web.dependencies import verify_telegram_ip_address, verify_telegram_secret
 
 logger = logging.getLogger(__name__)
 
@@ -57,14 +56,15 @@ async def on_startup_event():
     init_logging()
     init_sentry()
 
-    logger.info(
-        "Processes: logging, monitoring have been successfully initialized"
-    )
+    logger.info("Processes: logging, monitoring have been successfully initialized")
 
 
 # on shutdown
 @app.on_event("shutdown")
 async def on_shutdown_event():
+    # close httpx async client on shutdown
+    await bot.session_client.aclose()
+
     await bot.session.close()
 
 

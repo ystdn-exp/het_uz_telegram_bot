@@ -1,9 +1,9 @@
-from typing import Callable, Awaitable, Dict, Any
+from typing import Any, Awaitable, Callable, Dict
 
 from aiogram import BaseMiddleware
 from aiogram.types import TelegramObject
 
-from src.bot.utils.context_variables import set_locale, i18n
+from src.bot.utils.context_variables import i18n, set_locale
 from src.services.users import TelegramUserService
 
 

@@ -105,15 +105,20 @@ msgstr ""
 "Пожалуйста, подождите, пока мы проверяем ваши данные."
 
 #: src/bot/handlers/register.py:144
+#, python-brace-format
 msgid ""
 "🎉 <b>Success!</b>\n"
 "\n"
 "Account has been successfully linked!\n"
+"👤 <b>Username:</b> {username}\n"
+"\n"
 "You can now track your electricity consumption statistics effortlessly 📉"
 msgstr ""
 "🎉 <b>Успешно!</b>\n"
 "\n"
 "Аккаунт успешно привязан!\n"
+"👤 <b>Логин:</b> {username}\n"
+"\n"
 "Теперь вы можете легко отслеживать статистику потребления электроэнергии 📉"
 
 #: src/bot/handlers/register.py:162
@@ -562,4 +567,3 @@ msgstr ""
 "💰 <b>Текущий баланс:</b> {balance} сум\n"
 "\n"
 "Пожалуйста, пополните счет во избежание отключения! ⚡️"
-

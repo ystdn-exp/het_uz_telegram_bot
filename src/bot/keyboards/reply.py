@@ -7,12 +7,12 @@ from aiogram.utils.keyboard import ReplyKeyboardBuilder
 
 from src.bot.keyboards.constants import (
     BTN_ADD_ACCOUNT,
-    BTN_MY_ACCOUNTS,
-    BTN_HELP,
     BTN_CHANGE_LANGUAGE,
+    BTN_HELP,
     BTN_LANG_EN,
     BTN_LANG_RU,
     BTN_LANG_UZ,
+    BTN_MY_ACCOUNTS,
 )
 
 

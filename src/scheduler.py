@@ -1,8 +1,7 @@
 import asyncio
 import logging
 
-from src.core.scheduler import scheduler, init_scheduler
-
+from src.core.scheduler import init_scheduler, scheduler
 
 # Configure logging for the standalone process
 logging.basicConfig(

@@ -9,7 +9,6 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from src.bot.keyboards.reply import get_language_keyboard
 
-
 router = Router()
 
 

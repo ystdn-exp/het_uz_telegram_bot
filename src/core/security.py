@@ -3,7 +3,6 @@ from passlib.context import CryptContext
 
 from src.core.config import settings
 
-
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 
@@ -42,7 +41,8 @@ class PasswordEncoder:
         Checks if the plain password matches the encoded password.
         """
         return (
-            self.cipher_suit.decrypt(encoded_password.encode()).decode() == plain_password
+            self.cipher_suit.decrypt(encoded_password.encode()).decode()
+            == plain_password
         )
 
 

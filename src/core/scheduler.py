@@ -4,9 +4,8 @@ from apscheduler.jobstores.redis import RedisJobStore
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from apscheduler.triggers.cron import CronTrigger
 
-from src.tasks import jobs
 from src.core.config import settings
-
+from src.tasks import jobs
 
 logger = logging.getLogger(__name__)
 

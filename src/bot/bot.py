@@ -1,17 +1,17 @@
+import httpx
 from aiogram import Bot, Dispatcher, Router
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 from aiogram.fsm.storage.redis import RedisStorage
 from redis.asyncio import Redis
 
-from src.core.config import settings
-from src.bot.middlewares.session import DbSessionMiddleware
+from src.bot.handlers import language, register, start, users
+from src.bot.middlewares.auth import AuthMiddleware
 from src.bot.middlewares.localization import LocaleMiddleware
 from src.bot.middlewares.logging import LoggingMiddleware
-from src.bot.middlewares.auth import AuthMiddleware
+from src.bot.middlewares.session import DbSessionMiddleware
+from src.core.config import settings
 from src.database.connection import session_pool
-from src.bot.handlers import start, register, users, language
-
 
 # Initialize Redis connection
 redis = Redis(
@@ -31,6 +31,7 @@ bot = Bot(
         parse_mode=ParseMode.HTML,  # Use HTML formatting by default
     ),
 )
+bot.session_client = httpx.AsyncClient(timeout=httpx.Timeout(20.0))
 
 # Initialize dispatcher with storage
 dp = Dispatcher(storage=storage)

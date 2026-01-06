@@ -3,16 +3,16 @@ Scheduled jobs.
 """
 
 import logging
+
 import redis.asyncio as aioredis
 
-from src.database.connection import session_pool
-from src.services.users import TelegramUserService
-from src.services.het import het_service
 from src.bot.bot import bot
-from src.core.config import settings
 from src.bot.utils.context_variables import i18n
+from src.core.config import settings
+from src.database.connection import session_pool
 from src.database.models.users import UserInTelegramUser
-
+from src.services.het import het_service
+from src.services.users import TelegramUserService
 
 redis_client = aioredis.from_url(
     f"redis://{settings.REDIS_HOST}:{settings.REDIS_PORT}", decode_responses=True
@@ -64,14 +64,17 @@ async def daily_task():
                             username = acc["username"]
 
                             data, status = await het_service.get_consumer_state(
-                                access_token
+                                bot.session_client, access_token
                             )
 
                             # Handle 401 (Refresh Token) if needed
                             if status == 401 and refresh_token:
                                 logger.info(f"Refreshing token for user {username}")
-                                new_tokens, cls_status = await het_service.refresh_token(
-                                    refresh_token
+                                (
+                                    new_tokens,
+                                    cls_status,
+                                ) = await het_service.refresh_token(
+                                    bot.session_client, refresh_token
                                 )
 
                                 if cls_status == 200 and new_tokens.get("data"):
@@ -94,7 +97,7 @@ async def daily_task():
 
                                     # Retry fetch
                                     data, status = await het_service.get_consumer_state(
-                                        access_token
+                                        bot.session_client, access_token
                                     )
 
                             if status == 200 and data.get("data"):
@@ -148,12 +151,14 @@ async def _check_single_account_balance(session, telegram_user, link, _):
     """Helper to check balance for a single account link."""
     try:
         access_token = link.access_token
-        data, status = await het_service.get_consumer_state(access_token)
+        data, status = await het_service.get_consumer_state(
+            bot.session_client, access_token
+        )
 
         # Handle expired token
         if status == 401 and link.refresh_token:
             new_tokens, refresh_status = await het_service.refresh_token(
-                link.refresh_token
+                bot.session_client, link.refresh_token
             )
             if refresh_status == 200 and new_tokens.get("data"):
                 tokens = new_tokens["data"]
@@ -163,7 +168,9 @@ async def _check_single_account_balance(session, telegram_user, link, _):
                 await session.commit()
                 access_token = link.access_token
                 # Retry fetch
-                data, status = await het_service.get_consumer_state(access_token)
+                data, status = await het_service.get_consumer_state(
+                    bot.session_client, access_token
+                )
 
         if status == 200 and data.get("data"):
             item = data["data"]

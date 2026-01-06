@@ -5,14 +5,14 @@ Database services for users.
 from uuid import UUID
 
 import httpx
+from sqlalchemy import delete, select, update
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select, delete, update
-from sqlalchemy.orm import selectinload, joinedload
+from sqlalchemy.orm import joinedload, selectinload
 
-from src.core.security import password_encoder
-from src.database.models import User, TelegramUser, UserInTelegramUser
 from src.bot.exceptions import ValidationError
 from src.bot.utils import lazy_gettext as l_
+from src.core.security import password_encoder
+from src.database.models import TelegramUser, User, UserInTelegramUser
 from src.services.het import het_service
 
 
@@ -39,12 +39,14 @@ class UserService:
         return result.scalar_one_or_none()
 
     @classmethod
-    async def verify_het_account(cls, username: str, password: str):
+    async def verify_het_account(
+        cls, client: httpx.AsyncClient, username: str, password: str
+    ):
         """
         Verify het account using HET service.
         """
         try:
-            response, status = await het_service.authorize(username, password)
+            response, status = await het_service.authorize(client, username, password)
 
             if status != 200:
                 raise ValidationError(l_("Invalid username or password"))
@@ -87,7 +89,11 @@ class UserService:
 
     @classmethod
     async def get_or_create_user(
-        cls, session: AsyncSession, username: str, password: str
+        cls,
+        session: AsyncSession,
+        client: httpx.AsyncClient,
+        username: str,
+        password: str,
     ) -> tuple[User, str, str]:
         """
         Retrieve or create a het user and return with tokens.
@@ -98,7 +104,9 @@ class UserService:
         if not password:
             raise ValidationError(l_("Password is required"))
 
-        access_token, refresh_token = await cls.verify_het_account(username, password)
+        access_token, refresh_token = await cls.verify_het_account(
+            client, username, password
+        )
 
         # check if het user already exists
         existing_user = await cls.get_user(session, username=username)
@@ -145,7 +153,9 @@ class TelegramUserService:
         Returns:
             list[TelegramUser]: List of all telegram users.
         """
-        query = select(TelegramUser).options(joinedload(TelegramUser.users).joinedload(UserInTelegramUser.user))
+        query = select(TelegramUser).options(
+            joinedload(TelegramUser.users).joinedload(UserInTelegramUser.user)
+        )
         result = await session.execute(query)
         return result.scalars().unique().all()
 
@@ -225,7 +235,7 @@ class TelegramUserService:
             str: Language code (default: "en")
         """
         user = await cls.get_user(session, chat_id=chat_id)
-        if user and hasattr(user, 'language'):
+        if user and hasattr(user, "language"):
             return user.language
         return "en"  # Default language
 
@@ -253,7 +263,7 @@ class TelegramUserService:
             if existing_user.language == "en" and language != "en":
                 existing_user.language = language
                 changed = True
-                
+
             if username and existing_user.username != username:
                 existing_user.username = username
                 changed = True
@@ -277,7 +287,12 @@ class TelegramUserService:
 
     @classmethod
     async def add_user(
-        cls, session: AsyncSession, chat_id: str, het_username: str, het_password: str
+        cls,
+        session: AsyncSession,
+        chat_id: str,
+        client: httpx.AsyncClient,
+        het_username: str,
+        het_password: str,
     ):
         """
         Find or create a user in database and link it to a telegram user.
@@ -307,7 +322,7 @@ class TelegramUserService:
             raise ValidationError(l_("User already linked to this telegram user"))
 
         user, access_token, refresh_token = await UserService.get_or_create_user(
-            session, het_username, het_password
+            session, client, het_username, het_password
         )
 
         user_in_telegram_user = UserInTelegramUser(

@@ -1,12 +1,10 @@
-import os
 import contextvars
-
+import os
 from typing import Any
 
 from babel.support import Translations
 
 from src.core.config import settings
-
 
 current_locale = contextvars.ContextVar("current_locale", default="en")
 
@@ -166,6 +164,7 @@ class lazy_gettext(str):
     def __get_pydantic_core_schema__(cls, source_type: Any, handler: Any) -> Any:
         """Make lazy_gettext compatible with Pydantic v2."""
         from pydantic_core import core_schema
+
         return core_schema.no_info_before_validator_function(
             lambda x: str(x),
             core_schema.str_schema(),

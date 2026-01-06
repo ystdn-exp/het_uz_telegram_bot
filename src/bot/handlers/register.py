@@ -3,16 +3,17 @@ Registration handler for adding HET accounts.
 """
 
 import logging
-from aiogram import Router, F
+
+from aiogram import F, Router
 from aiogram.fsm.context import FSMContext
 from aiogram.types import Message
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from src.services.users import TelegramUserService
-from src.bot.states.registration import RegistrationStates
-from src.bot.keyboards.reply import get_main_menu_keyboard, get_remove_keyboard
-from src.bot.keyboards.constants import BTN_ADD_ACCOUNT
 from src.bot.exceptions import ValidationError
+from src.bot.keyboards.constants import BTN_ADD_ACCOUNT
+from src.bot.keyboards.reply import get_main_menu_keyboard, get_remove_keyboard
+from src.bot.states.registration import RegistrationStates
+from src.services.users import TelegramUserService
 
 router = Router()
 logger = logging.getLogger(__name__)
@@ -69,9 +70,7 @@ async def process_username(message: Message, state: FSMContext, _):
 
     if not username:
         await message.answer(
-            _(
-                "⚠️ <b>Invalid Username</b>\n\nUsername cannot be empty. Please try again:"
-            )
+            _("⚠️ <b>Invalid Username</b>\n\nUsername cannot be empty. Please try again:")
         )
         return
 
@@ -118,9 +117,7 @@ async def process_password(message: Message, state: FSMContext, session: AsyncSe
 
     # Show processing message
     processing_msg = await message.answer(
-        _(
-            "🔄 <b>Verifying Credentials...</b>\nPlease wait while we check your details."
-        )
+        _("🔄 <b>Verifying Credentials...</b>\nPlease wait while we check your details.")
     )
 
     try:
@@ -128,6 +125,7 @@ async def process_password(message: Message, state: FSMContext, session: AsyncSe
         await TelegramUserService.add_user(
             session,
             chat_id=str(message.from_user.id),
+            client=message.bot.session_client,
             het_username=username,
             het_password=password,
         )
@@ -143,9 +141,9 @@ async def process_password(message: Message, state: FSMContext, session: AsyncSe
             _(
                 "🎉 <b>Success!</b>\n\n"
                 "Account has been successfully linked!\n"
-                f"👤 <b>Username:</b> {username}\n\n"
+                "👤 <b>Username:</b> {username}\n\n"
                 "You can now track your electricity consumption statistics effortlessly 📉"
-            ),
+            ).format(username=username),
             reply_markup=get_main_menu_keyboard(),
         )
 

@@ -1,4 +1,4 @@
-from src.database.models.users import User, TelegramUser, UserInTelegramUser  # noqa
+from src.database.models.users import TelegramUser, User, UserInTelegramUser  # noqa
 
 __all__ = [
     "User",

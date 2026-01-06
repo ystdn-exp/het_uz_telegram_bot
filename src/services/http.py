@@ -1,5 +1,6 @@
-import httpx
 from typing import Optional
+
+from httpx import AsyncClient, HTTPStatusError, RequestError
 
 
 class HTTPClient:
@@ -7,7 +8,7 @@ class HTTPClient:
     Async HTTP client for handling HTTP requests without blocking the event loop.
     """
 
-    def __init__(self, timeout: float = 30.0, max_retries: int = 3):
+    def __init__(self, max_retries: int = 3):
         """
         Initialize HTTP client with configuration.
 
@@ -15,13 +16,15 @@ class HTTPClient:
             timeout (float): Request timeout in seconds
             max_retries (int): Maximum number of retry attempts for failed requests
         """
-        self.timeout = timeout
         self.max_retries = max_retries
-        self.async_client = httpx.AsyncClient(timeout=self.timeout)
-
 
     async def _request(
-        self, method: str, endpoint: str, headers: Optional[dict] = None, **kwargs
+        self,
+        client: AsyncClient,
+        method: str,
+        endpoint: str,
+        headers: Optional[dict] = None,
+        **kwargs,
     ):
         """
         Make an async HTTP request to the specified endpoint.
@@ -35,30 +38,25 @@ class HTTPClient:
         Returns:
             httpx.Response: The response from the API.
         """
-        if headers is None:
-            headers = {}
+        # Create a copy to avoid mutating the original headers dictionary
+        request_headers = (headers or {}).copy()
+        request_headers["Coato-Code"] = "26280"
 
-        headers["Coato-Code"] = "26280"
-
-        async with self.async_client as client:
-            for attempt in range(self.max_retries):
-                try:
-                    response = await client.request(
-                        method, endpoint, headers=headers, **kwargs
-                    )
-                    response.raise_for_status()
-                    return response
-                except httpx.HTTPStatusError as e:
-                    # Return response for 4xx errors (client errors)
-                    if e.response.status_code < 500:
-                        try:
-                            return e.response
-                        except Exception:
-                            return e.response
-                    # Retry on 5xx errors (server errors)
-                    if attempt == self.max_retries - 1:
-                        raise
-                except httpx.RequestError:
-                    # Retry on network errors
-                    if attempt == self.max_retries - 1:
-                        raise
+        for attempt in range(self.max_retries):
+            try:
+                response = await client.request(
+                    method, endpoint, headers=request_headers, **kwargs
+                )
+                response.raise_for_status()
+                return response
+            except HTTPStatusError as e:
+                # Return response for 4xx errors (client errors)
+                if e.response.status_code < 500:
+                    return e.response
+                # Retry on 5xx errors (server errors)
+                if attempt == self.max_retries - 1:
+                    raise
+            except RequestError:
+                # Retry on network errors
+                if attempt == self.max_retries - 1:
+                    raise

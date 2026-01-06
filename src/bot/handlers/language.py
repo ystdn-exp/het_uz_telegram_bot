@@ -2,20 +2,20 @@
 Language selection handler.
 """
 
-from aiogram import Router, F
+from aiogram import F, Router
 from aiogram.types import Message
-from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
+from sqlalchemy.ext.asyncio import AsyncSession
 
-from src.database.models import TelegramUser
-from src.bot.keyboards.reply import get_main_menu_keyboard, get_language_keyboard
 from src.bot.keyboards.constants import (
+    BTN_CHANGE_LANGUAGE,
     BTN_LANG_EN,
     BTN_LANG_RU,
     BTN_LANG_UZ,
-    BTN_CHANGE_LANGUAGE,
 )
-from src.bot.utils.context_variables import set_locale, i18n
+from src.bot.keyboards.reply import get_language_keyboard, get_main_menu_keyboard
+from src.bot.utils.context_variables import i18n, set_locale
+from src.database.models import TelegramUser
 
 router = Router()
 

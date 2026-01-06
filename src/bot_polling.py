@@ -15,6 +15,7 @@ async def main():
     try:
         await dp.start_polling(bot)
     finally:
+        await bot.session_client.aclose()
         await bot.session.close()
 
 

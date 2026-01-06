@@ -1,11 +1,9 @@
 import logging
 import time
-
 from typing import Any, Awaitable, Callable, Dict
 
 from aiogram import BaseMiddleware
 from aiogram.types import TelegramObject
-
 
 logger = logging.getLogger(__name__)
 
@@ -17,7 +15,6 @@ class LoggingMiddleware(BaseMiddleware):
         event: TelegramObject,
         data: Dict[str, Any],
     ) -> Any:
-
         start_time = time.perf_counter()
         user = data.get("event_from_user")
         user_id = user if user.id else "system"
