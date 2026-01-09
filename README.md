@@ -1,5 +1,7 @@
 # 🤖 HET - Your Smart Telegram Bot
 
+![HET Logo](./overview/logo.png)
+
 Welcome to **HET**, a powerful and easy-to-use Telegram bot platform. Whether you're a developer or just starting out, this guide will help you get your bot up and running in minutes!
 
 ---
