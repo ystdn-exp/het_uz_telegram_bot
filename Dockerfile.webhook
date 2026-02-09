@@ -1,0 +1,11 @@
+FROM alpine:latest
+
+# Install dependencies once during build
+RUN apk add --no-cache curl jq
+
+# Copy and prepare the script
+COPY ngrok-entrypoint.sh /usr/local/bin/webhook-script.sh
+RUN chmod +x /usr/local/bin/webhook-script.sh
+
+# Set the entrypoint
+ENTRYPOINT ["/usr/local/bin/webhook-script.sh"]

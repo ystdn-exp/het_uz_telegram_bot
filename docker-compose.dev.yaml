@@ -1,0 +1,77 @@
+version: "3.8"
+
+services:
+  web:
+    build:
+      dockerfile: Dockerfile.development
+    command: gunicorn -k uvicorn.workers.UvicornWorker src.main:app --bind=0.0.0.0:8000 --workers=1
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    depends_on:
+      - redis
+      - db
+    networks:
+      - app_network
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    networks:
+      - app_network
+
+  db:
+    image: postgres:14
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: het_db
+    ports:
+      - "5445:5432"
+    networks:
+      - app_network
+
+  ngrok:
+    image: ngrok/ngrok:latest
+    command: http web:8000
+    environment:
+      NGROK_AUTHTOKEN: ${NGROK_AUTHTOKEN}
+    ports:
+      - "4040:4040"
+    depends_on:
+      - web
+    networks:
+      - app_network
+
+  webhook_setup:
+    build:
+      dockerfile: Dockerfile.webhook
+    depends_on:
+      - ngrok
+    env_file:
+      - .env
+    networks:
+      - app_network
+
+  scheduler:
+    build:
+      dockerfile: Dockerfile.scheduler
+    command: python -m src.scheduler
+    env_file:
+      - .env
+    depends_on:
+      - db
+      - redis
+    networks:
+      - app_network
+
+volumes:
+  postgres_data:
+
+networks:
+  app_network:
+    driver: bridge

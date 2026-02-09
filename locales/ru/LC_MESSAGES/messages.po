@@ -1,0 +1,569 @@
+# Russian translations for PROJECT.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-01-05 05:36+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ru\n"
+"Language-Team: ru <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: src/bot/handlers/language.py:29
+msgid ""
+"🌐 <b>Select Your Language</b>\n"
+"\n"
+"Choose your preferred language:"
+msgstr ""
+"🌐 <b>Выберите язык</b>\n"
+"\n"
+"Выберите удобный для вас язык:"
+
+#: src/bot/handlers/language.py:76
+msgid ""
+"🌟 <b>Welcome to HET Bot!</b> 🏠✨\n"
+"\n"
+"⚡️ Here you can effortlessly manage your electricity accounts and track "
+"your consumption! 📉💡\n"
+"\n"
+"🚀 Let's get started! Use the menu below to navigate. 👇"
+msgstr ""
+"🌟 <b>Добро пожаловать в HET Bot!</b> 🏠✨\n"
+"\n"
+"⚡️ Здесь вы можете легко управлять своими счетами за электроэнергию и "
+"отслеживать потребление! 📉💡\n"
+"\n"
+"🚀 Начнем! Используйте меню ниже для навигации. 👇"
+
+#: src/bot/handlers/register.py:42
+msgid ""
+"🚫 <b>Limit Reached</b>\n"
+"\n"
+"You have reached the maximum limit of 3 linked accounts.\n"
+"To add a new one, please remove an existing account first."
+msgstr ""
+"🚫 <b>Лимит достигнут</b>\n"
+"\n"
+"Вы достигли лимита в 3 привязанных аккаунта.\n"
+"Чтобы добавить новый, пожалуйста, сначала удалите один из существующих."
+
+#: src/bot/handlers/register.py:53
+msgid ""
+"👤 <b>Username Required</b>\n"
+"\n"
+"Please enter your HET account username:"
+msgstr ""
+"👤 <b>Требуется логин</b>\n"
+"\n"
+"Пожалуйста, введите логин вашего аккаунта HET:"
+
+#: src/bot/handlers/register.py:73
+msgid ""
+"⚠️ <b>Invalid Username</b>\n"
+"\n"
+"Username cannot be empty. Please try again:"
+msgstr ""
+"⚠️ <b>Некорректный логин</b>\n"
+"\n"
+"Логин не может быть пустым. Пожалуйста, попробуйте еще раз:"
+
+#: src/bot/handlers/register.py:85
+msgid ""
+"🔐 <b>Password Required</b>\n"
+"\n"
+"Great! Now please enter your HET account password:"
+msgstr ""
+"🔐 <b>Требуется пароль</b>\n"
+"\n"
+"Отлично! Теперь введите пароль вашего аккаунта HET:"
+
+#: src/bot/handlers/register.py:105
+msgid ""
+"⚠️ <b>Invalid Password</b>\n"
+"\n"
+"Password cannot be empty. Please try again:"
+msgstr ""
+"⚠️ <b>Некорректный пароль</b>\n"
+"\n"
+"Пароль не может быть пустым. Пожалуйста, попробуйте еще раз:"
+
+#: src/bot/handlers/register.py:122
+msgid ""
+"🔄 <b>Verifying Credentials...</b>\n"
+"Please wait while we check your details."
+msgstr ""
+"🔄 <b>Проверка данных...</b>\n"
+"Пожалуйста, подождите, пока мы проверяем ваши данные."
+
+#: src/bot/handlers/register.py:144
+#, python-brace-format
+msgid ""
+"🎉 <b>Success!</b>\n"
+"\n"
+"Account has been successfully linked!\n"
+"👤 <b>Username:</b> {username}\n"
+"\n"
+"You can now track your electricity consumption statistics effortlessly 📉"
+msgstr ""
+"🎉 <b>Успешно!</b>\n"
+"\n"
+"Аккаунт успешно привязан!\n"
+"👤 <b>Логин:</b> {username}\n"
+"\n"
+"Теперь вы можете легко отслеживать статистику потребления электроэнергии 📉"
+
+#: src/bot/handlers/register.py:162
+#, python-brace-format
+msgid ""
+"❌ <b>Authentication Failed</b>\n"
+"\n"
+"{error}\n"
+"\n"
+"Please check your credentials and try again."
+msgstr ""
+"❌ <b>Ошибка аутентификации</b>\n"
+"\n"
+"{error}\n"
+"\n"
+"Пожалуйста, проверьте свои данные и попробуйте еще раз."
+
+#: src/bot/handlers/register.py:184
+msgid "❌ An unexpected error occurred. Please try again later."
+msgstr "❌ Произошла непредвиденная ошибка. Пожалуйста, попробуйте позже."
+
+#: src/bot/handlers/start.py:30
+msgid ""
+"Please select your language / Пожалуйста, выберите язык / Iltimos, tilni "
+"tanlang:"
+msgstr ""
+"Пожалуйста, выберите язык / Please select your language / Iltimos, tilni "
+"tanlang:"
+
+#: src/bot/handlers/users.py:60
+msgid ""
+"📭 <b>No Accounts Linked</b>\n"
+"\n"
+"You haven't linked any HET accounts yet.\n"
+"Tap <b>'➕ Add Account'</b> below to get started and track your usage!"
+msgstr ""
+"📭 <b>Нет привязанных аккаунтов</b>\n"
+"\n"
+"Вы еще не привязали ни одного аккаунта HET.\n"
+"Нажмите <b>'➕ Добавить аккаунт'</b> ниже, чтобы начать отслеживать "
+"потребление!"
+
+#: src/bot/handlers/users.py:76 src/bot/handlers/users.py:778
+#: src/bot/handlers/users.py:785
+msgid ""
+"📋 <b>Your HET Accounts</b>\n"
+"\n"
+"Select an account below to view detailed statistics and consumption data:"
+msgstr ""
+"📋 <b>Ваши аккаунты HET</b>\n"
+"\n"
+"Выберите аккаунт ниже для просмотра графиков и данных о потреблении:"
+
+#: src/bot/handlers/users.py:94
+msgid ""
+"🤖 <b>HET Bot Assistance</b>\n"
+"\n"
+"Here's how I can help you manage your electricity data:\n"
+"\n"
+"<b>📂 Account Management</b>\n"
+"• <b>➕ Add Account:</b> Link up to 3 HET electricity accounts.\n"
+"• <b>👁 My Accounts:</b> View linked accounts, check balances & "
+"statistics.\n"
+"\n"
+"<b>📊 Statistics & Tracking</b>\n"
+"View detailed consumption graphs for:\n"
+"• 🗓 Monthly\n"
+"• 📅 Yearly\n"
+"\n"
+"• 📑 Meter Readings & Payments History\n"
+"\n"
+"<b>🔔 Notifications</b>\n"
+"I'll send you a daily summary of your electricity usage at 10:00 AM.\n"
+"\n"
+"<b>🆘 Support</b>\n"
+"Need more help? Contact your system administrator."
+msgstr ""
+"🤖 <b>Помощь HET Bot</b>\n"
+"\n"
+"Вот как я могу помочь вам управлять данными об электроэнергии:\n"
+"\n"
+"<b>📂 Управление аккаунтами</b>\n"
+"• <b>➕ Добавить аккаунт:</b> Привяжите до 3 аккаунтов HET.\n"
+"• <b>👁 Мои аккаунты:</b> Просмотр привязанных аккаунтов, балансов и "
+"статистики.\n"
+"\n"
+"<b>📊 Статистика и отслеживание</b>\n"
+"Просмотр детальных графиков потребления:\n"
+"• 🗓 Месячный\n"
+"• 📅 Годовой\n"
+"\n"
+"• 📑 Показания счетчика и история платежей\n"
+"\n"
+"<b>🔔 Уведомления</b>\n"
+"Я буду присылать вам ежедневную сводку потребления в 10:00.\n"
+"\n"
+"<b>🆘 Поддержка</b>\n"
+"Нужна помощь? Свяжитесь с системным администратором."
+
+#: src/bot/handlers/users.py:128 src/bot/handlers/users.py:516
+#: src/bot/handlers/users.py:544 src/bot/handlers/users.py:612
+#: src/bot/handlers/users.py:668 src/bot/handlers/users.py:699
+msgid "❌ Invalid account"
+msgstr "❌ Неверный аккаунт"
+
+#: src/bot/handlers/users.py:140
+msgid "❌ Account not found"
+msgstr "❌ Аккаунт не найден"
+
+#: src/bot/handlers/users.py:171
+#, python-brace-format
+msgid ""
+"\n"
+"💰 <b>Balance:</b> {balance} UZS"
+msgstr ""
+"\n"
+"💰 <b>Баланс:</b> {balance} сум"
+
+#: src/bot/handlers/users.py:177
+#, python-brace-format
+msgid ""
+"🏠 <b>Account: {username}</b>{balance}\n"
+"\n"
+"Please select a time period below to analyze your electricity consumption:"
+msgstr ""
+"🏠 <b>Аккаунт: {username}</b>{balance}\n"
+"\n"
+"Пожалуйста, выберите период ниже для просмотра потребления электроэнергии:"
+
+#: src/bot/handlers/users.py:312
+msgid "Today Consumption"
+msgstr "Сегодняшнее потребление"
+
+#: src/bot/handlers/users.py:314
+msgid "Weekly Consumption"
+msgstr "Недельное потребление"
+
+#: src/bot/handlers/users.py:316
+msgid "Monthly Consumption"
+msgstr "Месячное потребление"
+
+#: src/bot/handlers/users.py:355 src/bot/handlers/users.py:443
+msgid "❌ Invalid request"
+msgstr "❌ Некорректный запрос"
+
+#: src/bot/handlers/users.py:361
+msgid ""
+"📊 <b>Yearly Consumption</b>\n"
+"\n"
+"Please select a year to view:"
+msgstr ""
+"📊 <b>Годовой отчет</b>\n"
+"\n"
+"Пожалуйста, выберите год для просмотра:"
+
+#: src/bot/handlers/users.py:368
+msgid "⏳ Fetching your data... Please wait."
+msgstr "⏳ Загрузка данных... Пожалуйста, подождите."
+
+#: src/bot/handlers/users.py:385 src/bot/handlers/users.py:460
+msgid ""
+"⚠️ <b>Account Not Found</b>\n"
+"\n"
+"Could not locate the specified account."
+msgstr ""
+"⚠️ <b>Аккаунт не найден</b>\n"
+"\n"
+"Не удалось найти указанный аккаунт."
+
+#: src/bot/handlers/users.py:400
+msgid "Period"
+msgstr "Период"
+
+#: src/bot/handlers/users.py:401 src/bot/handlers/users.py:478
+msgid "Consumption (kWh)"
+msgstr "Потребление (кВтч)"
+
+#: src/bot/handlers/users.py:406 src/bot/handlers/users.py:483
+#, python-brace-format
+msgid ""
+"📊 <b>{title}</b>\n"
+"\n"
+"👤 <b>Account:</b> {username}"
+msgstr ""
+"📊 <b>{title}</b>\n"
+"\n"
+"👤 <b>Аккаунт:</b> {username}"
+
+#: src/bot/handlers/users.py:421 src/bot/handlers/users.py:498
+#, python-brace-format
+msgid "❌ An error occurred while fetching data: {error}"
+msgstr "❌ Ошибка при загрузке данных: {error}"
+
+#: src/bot/handlers/users.py:447
+#, python-brace-format
+msgid "⏳ Fetching {year} data..."
+msgstr "⏳ Загрузка данных за {year} год..."
+
+#: src/bot/handlers/users.py:477
+msgid "Month"
+msgstr "Месяц"
+
+#: src/bot/handlers/users.py:522 src/bot/handlers/users.py:526
+msgid "📅 Select a period:"
+msgstr "📅 Выберите период:"
+
+#: src/bot/handlers/users.py:547
+msgid "⏳ Fetching payments..."
+msgstr "⏳ Загрузка платежей..."
+
+#: src/bot/handlers/users.py:563
+msgid ""
+"⚠️ <b>Account Not Found</b>\n"
+"\n"
+"Please try again."
+msgstr ""
+"⚠️ <b>Аккаунт не найден</b>\n"
+"\n"
+"Пожалуйста, попробуйте еще раз."
+
+#: src/bot/handlers/users.py:574
+msgid ""
+"⚠️ <b>Connection Error</b>\n"
+"\n"
+"Failed to retrieve payment history."
+msgstr ""
+"⚠️ <b>Ошибка соединения</b>\n"
+"\n"
+"Не удалось получить историю платежей."
+
+#: src/bot/handlers/users.py:590
+#, python-brace-format
+msgid "❌ Error fetching payments: {error}"
+msgstr "❌ Ошибка при загрузке платежей: {error}"
+
+#: src/bot/handlers/users.py:620
+msgid ""
+"⚠️ <b>Connection Error</b>\n"
+"\n"
+"Failed to retrieve reading history."
+msgstr ""
+"⚠️ <b>Ошибка соединения</b>\n"
+"\n"
+"Не удалось получить историю показаний."
+
+#: src/bot/handlers/users.py:624
+msgid ""
+"📟 <b>Meter Readings</b>\n"
+"\n"
+msgstr ""
+"📟 <b>Показания счетчика</b>\n"
+"\n"
+
+#: src/bot/handlers/users.py:628
+msgid "<i>No reading records found.</i>"
+msgstr "<i>Записи о показаниях не найдены.</i>"
+
+#: src/bot/handlers/users.py:652
+#, python-brace-format
+msgid "❌ Error fetching readings: {error}"
+msgstr "❌ Ошибка при загрузке показаний: {error}"
+
+#: src/bot/handlers/users.py:672
+msgid ""
+"🗑 <b>Delete Account?</b>\n"
+"\n"
+"Are you sure you want to remove this account?\n"
+"<i>This action will unlink it from the bot, but you can always add it "
+"back later.</i>"
+msgstr ""
+"🗑 <b>Удалить аккаунт?</b>\n"
+"\n"
+"Вы уверены, что хотите отвязать этот аккаунт?\n"
+"<i>Это действие удалит аккаунт из бота, но вы сможете добавить его "
+"снова.</i>"
+
+#: src/bot/handlers/users.py:707
+msgid ""
+"✅ <b>Account Removed</b>\n"
+"\n"
+"The account has been successfully unlinked."
+msgstr ""
+"✅ <b>Аккаунт удален</b>\n"
+"\n"
+"Аккаунт был успешно отвязан."
+
+#: src/bot/handlers/users.py:717
+msgid "Use the menu to manage your remaining accounts:"
+msgstr "Используйте меню для управления аккаунтами:"
+
+#: src/bot/handlers/users.py:723
+#, python-brace-format
+msgid "❌ Error deleting account: {error}"
+msgstr "❌ Ошибка при удалении аккаунта: {error}"
+
+#: src/bot/handlers/users.py:737
+msgid "🚫 <b>Action Cancelled</b>"
+msgstr "🚫 <b>Действие отменено</b>"
+
+#: src/bot/handlers/users.py:746
+msgid "What would you like to do next?"
+msgstr "Что бы вы хотели сделать дальше?"
+
+#: src/bot/handlers/users.py:765
+msgid "You don't have any accounts."
+msgstr "У вас нет привязанных аккаунтов."
+
+#: src/bot/handlers/users.py:794
+msgid ""
+"💳 <b>Payment History</b>\n"
+"\n"
+msgstr ""
+"💳 <b>История платежей</b>\n"
+"\n"
+
+#: src/bot/handlers/users.py:798
+msgid "<i>No payment records found for this account.</i>"
+msgstr "<i>Записи о платежах не найдены.</i>"
+
+#: src/bot/handlers/users.py:805
+msgid "Electricity"
+msgstr "Электроэнергия"
+
+#: src/bot/keyboards/constants.py:8
+msgid "➕ Add Account"
+msgstr "➕ Добавить аккаунт"
+
+#: src/bot/keyboards/constants.py:9
+msgid "👁 My Accounts"
+msgstr "👁 Мои аккаунты"
+
+#: src/bot/keyboards/constants.py:10
+msgid "ℹ️ Help"
+msgstr "ℹ️ Помощь"
+
+#: src/bot/keyboards/constants.py:11
+msgid "🌐 Change Language"
+msgstr "🌐 Изменить язык"
+
+#: src/bot/keyboards/constants.py:19
+msgid "📅 Today"
+msgstr "📅 Сегодня"
+
+#: src/bot/keyboards/constants.py:20
+msgid "📈 Weekly"
+msgstr "📈 Неделя"
+
+#: src/bot/keyboards/constants.py:21
+msgid "📆 Monthly"
+msgstr "📆 Месяц"
+
+#: src/bot/keyboards/constants.py:22
+msgid "📊 Yearly"
+msgstr "📊 Год"
+
+#: src/bot/keyboards/constants.py:25
+msgid "📊 Consumption"
+msgstr "📊 Потребление"
+
+#: src/bot/keyboards/constants.py:26
+msgid "💳 Payments"
+msgstr "💳 Платежи"
+
+#: src/bot/keyboards/constants.py:27
+msgid "📟 Meter Readings"
+msgstr "📟 Показания"
+
+#: src/bot/keyboards/constants.py:28
+msgid "🔙 Back"
+msgstr "🔙 Назад"
+
+#: src/bot/keyboards/constants.py:29
+msgid "🗑 Delete"
+msgstr "🗑 Удалить"
+
+#: src/bot/keyboards/constants.py:30
+msgid "❌ Cancel"
+msgstr "❌ Отмена"
+
+#: src/bot/keyboards/constants.py:31
+msgid "✅ Confirm"
+msgstr "✅ Подтвердить"
+
+#: src/services/users.py:50 src/services/users.py:58
+msgid "Invalid username or password"
+msgstr "Неверный логин или пароль"
+
+#: src/services/users.py:64
+msgid "Invalid input data"
+msgstr "Некорректные данные"
+
+#: src/services/users.py:65
+msgid "HET API error. Please try again later."
+msgstr "Ошибка HET API. Пожалуйста, попробуйте позже."
+
+#: src/services/users.py:69
+msgid "HET service is temporarily unavailable."
+msgstr "Сервис HET временно недоступен."
+
+#: src/services/users.py:97
+msgid "Username is required"
+msgstr "Логин обязателен"
+
+#: src/services/users.py:99
+msgid "Password is required"
+msgstr "Пароль обязателен"
+
+#: src/services/users.py:110
+msgid "Password is incorrect"
+msgstr "Неверный пароль"
+
+#: src/services/users.py:244 src/services/users.py:288
+#: src/services/users.py:332
+msgid "Chat ID is required"
+msgstr "Chat ID обязателен"
+
+#: src/services/users.py:292
+msgid "Telegram user not found"
+msgstr "Пользователь не найден"
+
+#: src/services/users.py:307
+msgid "User already linked to this telegram user"
+msgstr "Аккаунт уже привязан к этому пользователю"
+
+#: src/services/users.py:334
+msgid "User ID is required"
+msgstr "User ID обязателен"
+
+#: src/tasks/jobs.py:44
+msgid "📊 <b>Daily Usage Report</b>"
+msgstr "📊 <b>Ежедневный отчет по потреблению</b>"
+
+#: src/tasks/jobs.py:186
+#, python-brace-format
+msgid ""
+"⚠️ <b>Low Balance Alert!</b>\n"
+"\n"
+"👤 <b>Account:</b> {username}\n"
+"💰 <b>Current Balance:</b> {balance} UZS\n"
+"\n"
+"Please top up your account to avoid service interruption! ⚡️"
+msgstr ""
+"⚠️ <b>Внимание: Низкий баланс!</b>\n"
+"\n"
+"👤 <b>Аккаунт:</b> {username}\n"
+"💰 <b>Текущий баланс:</b> {balance} сум\n"
+"\n"
+"Пожалуйста, пополните счет во избежание отключения! ⚡️"

@@ -1,0 +1,36 @@
+# Core
+fastapi[standard]==0.115.0
+pydantic-settings==2.9.1
+passlib[bcrypt]==1.7.4
+cryptography==43.0.1
+seaborn==0.13.2
+pandas==2.2.3
+requests==2.32.3
+
+# SQLAlchemy and async
+psycopg2-binary==2.9.9
+sqlalchemy==2.0.41
+sqlalchemy[asyncio]==2.0.41
+asyncpg==0.29.0
+
+# Migration
+alembic==1.16.1
+
+# Monitoring
+sentry-sdk[fastapi]==2.15.0
+
+# Telegram Bot
+aiogram==3.22.0
+babel==2.17.0
+
+# Caching
+redis==5.0.7
+
+# Background tasks
+apscheduler==3.10.4
+
+# commands
+typer[all]==0.12.5
+
+# server
+gunicorn==23.0.0

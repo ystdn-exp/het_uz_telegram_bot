@@ -1,0 +1,53 @@
+version: "3.8"
+
+services:
+  web:
+    build:
+      dockerfile: Dockerfile.production
+    command: gunicorn -k uvicorn.workers.UvicornWorker src.main:app --bind=0.0.0.0:8000 --workers=3
+    volumes:
+      - .:/home/user/bot
+    ports:
+      - "8000:8000"
+    depends_on:
+      - redis
+      - db
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+
+  db:
+    image: postgres:14
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "5445:5432"
+
+  webhook_setup:
+    build: .
+    command: python manage.py set_webhook $(NGROK_URL)
+    entrypoint: ["ngrok-entrypoint.sh"]
+    depends_on:
+      - ngrok
+      - web
+
+  scheduler:
+    build:
+      dockerfile: Dockerfile.scheduler
+    command: python -m src.scheduler
+    env_file:
+      - .env
+    depends_on:
+      - db
+      - redis
+    networks:
+      - app_network
+
+volumes:
+  postgres_data:
